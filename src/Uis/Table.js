@@ -16,7 +16,6 @@ const Table = (props) => {
     const prevRange = (currentPage - 1) * paginationLimit;
     const currentRange = currentPage * paginationLimit;
     userList = props.users.slice(prevRange, currentRange);
-    console.log(userList);
   };
 
   const OnPageNumberSet = () => {
@@ -29,7 +28,6 @@ const Table = (props) => {
   const pageNoChangeHandler = (pageNo) => {
     // currentPage = pageNo;
     setCurrentPage(+pageNo);
-    console.log("currentPage", currentPage);
     OnPageNumberSet();
   };
 
@@ -65,7 +63,10 @@ const Table = (props) => {
         </thead>
         <tbody>
           {userList.map((el) => (
-            <tr key={el.id}>
+            <tr
+              key={el.id}
+              className={props.selectedRows.includes(el) ? "selected" : null}
+            >
               <td>
                 {" "}
                 <input

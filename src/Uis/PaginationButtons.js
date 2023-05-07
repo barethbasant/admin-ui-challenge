@@ -2,7 +2,6 @@ const PaginationButtons = (props) => {
   const pagenationCountButton = [];
 
   const handlePageNo = (i) => {
-    console.log(i);
     props.onPageNoChange(i);
   };
 
